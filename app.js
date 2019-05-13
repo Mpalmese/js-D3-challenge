@@ -68,13 +68,13 @@ d3.csv("data.csv")
     .attr("opacity", ".5");
 
 
-    chartGroup.selectAll("tspan")
+    var abbreviations = chartGroup.selectAll("tspan")
     .data(Data)
     .enter()
     .append("text")
     .text(d => d.abbr)
     .attr("x", d => xLinearScale(d.poverty) -10)
-    .attr("y", d => yLinearScale(d.healthcare) + 5)
+    .attr("y", d => yLinearScale(d.healthcare) + 6)
     ;
     
     // Step 6: Initialize tool tip
@@ -92,7 +92,7 @@ d3.csv("data.csv")
 
     // Step 8: Create event listeners to display and hide the tooltip
     // ==============================
-    circlesGroup.on("click", function(data) {
+    abbreviations.on("click", function(data) {
       toolTip.show(data, this);
     })
       // onmouseout event
