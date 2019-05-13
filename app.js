@@ -67,11 +67,15 @@ d3.csv("data.csv")
     .attr("fill", "blue")
     .attr("opacity", ".5");
 
-    // chartGroup.selectAll("text")
-    // .data(Data)
-    // .enter()
-    // .append("text")
-    // .text(d => d.abbr);
+
+    chartGroup.selectAll("tspan")
+    .data(Data)
+    .enter()
+    .append("text")
+    .text(d => d.abbr)
+    .attr("x", d => xLinearScale(d.poverty) -10)
+    .attr("y", d => yLinearScale(d.healthcare) + 5)
+    ;
     
     // Step 6: Initialize tool tip
     // ==============================
